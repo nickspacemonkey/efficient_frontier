@@ -58,7 +58,7 @@ plt.xlabel('Volatility')
 plt.ylabel('Returns')
 plt.colorbar()
 #plot red star to highlight position of portfolio with highest Sharpe Ratio
-#plt.scatter(max_sharpe_port[1],max_sharpe_port[0],marker=(5,1,0),color='r',s=1000)
+plt.scatter(max_sharpe_port[1],max_sharpe_port[0])
 #plot green star to highlight position of minimum variance portfolio
 #plt.scatter(min_vol_port[1],min_vol_port[0],marker=(5,1,0),color='g',s=1000)
 plt.scatter(min_vol_port[1],min_vol_port[0])
