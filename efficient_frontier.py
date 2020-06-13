@@ -3,6 +3,8 @@ import pandas as pd
 import pandas_datareader.data as web
 import matplotlib.pyplot as plt
 
+#NEEDS CHANGING. IMPORT DATAFRAME FROM CSV THEN FORMAT ACCORINGLY.
+
 #list of stocks in portfolio
 stocks = ['AAPL','AMZN','GOOGL','MSFT', 'NFLX', 'FB']
 
@@ -52,6 +54,8 @@ max_sharpe_port = results_frame.iloc[results_frame['sharpe'].idxmax()]
 #locate positon of portfolio with minimum standard deviation
 min_vol_port = results_frame.iloc[results_frame['stdev'].idxmin()]
 
+max_ret_port = results_frame.iloc[results_frame['ret'].idxmax()]
+
 #create scatter plot coloured by Sharpe Ratio
 plt.scatter(results_frame.stdev,results_frame.ret,c=results_frame.sharpe,cmap='RdYlBu')
 plt.xlabel('Volatility')
@@ -62,7 +66,12 @@ plt.scatter(max_sharpe_port[1],max_sharpe_port[0])
 #plot green star to highlight position of minimum variance portfolio
 #plt.scatter(min_vol_port[1],min_vol_port[0],marker=(5,1,0),color='g',s=1000)
 plt.scatter(min_vol_port[1],min_vol_port[0])
+plt.scatter(max_ret_port[1],max_ret_port[0])
 
-
+print("Minimum volatility portfolio")
 print(min_vol_port)
+print("Maximum sharpe ratio portfolio")
+print(max_sharpe_port)
+print("Maximum return portfolio")
+print(max_ret_port)
 plt.show()
