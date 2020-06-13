@@ -3,8 +3,6 @@ import pandas as pd
 import pandas_datareader.data as web
 import matplotlib.pyplot as plt
 
-#NEEDS CHANGING. IMPORT DATAFRAME FROM CSV THEN FORMAT ACCORINGLY.
-
 #list of stocks in portfolio
 stocks = ['AAPL','AMZN','GOOGL','MSFT', 'NFLX', 'FB']
 
@@ -29,7 +27,7 @@ results = np.zeros((4+len(stocks)-1,num_portfolios))
 
 for i in range(num_portfolios):
     #select random weights for portfolio holdings
-    weights = np.array(np.random.random(6))
+    weights = np.array(np.random.random(len(stocks)))
     #rebalance weights to sum to 1
     weights /= np.sum(weights)
 
