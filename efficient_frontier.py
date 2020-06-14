@@ -47,7 +47,7 @@ for i in range(num_portfolios):
         results[j+3,i] = weights[j]
 
 #convert results array to Pandas DataFrame
-results_frame = pd.DataFrame(results.T,columns=['ret','stdev','sharpe',stocks[0],stocks[1],stocks[2],stocks[3],stocks[4], stocks[5]])
+results_frame = pd.DataFrame(results.T,columns=['ret','stdev','sharpe',*stocks])
 
 #locate position of portfolio with highest Sharpe Ratio
 max_sharpe_port = results_frame.iloc[results_frame['sharpe'].idxmax()]
