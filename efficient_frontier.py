@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 #NEEDS CHANGING. IMPORT DATAFRAME FROM CSV THEN FORMAT ACCORINGLY.
 
 #list of stocks in portfolio
-stocks = ['AAPL','AMZN','GOOGL','MSFT', 'NFLX', 'FB']
+stocks = ['AMZN','TSLA','NVDA','AAPL', 'BABA', 'COST', 'DIS', 'MSFT','FB', 'V', 'UBER', 'GOOGL', 'NFLX', 'LMT', 'NET']
 
 #download daily price data for each of the stocks in the portfolio
 data = web.DataReader(stocks,data_source='yahoo',start='01/01/2010')['Adj Close']
@@ -53,7 +53,7 @@ results_frame = pd.DataFrame(results.T,columns=['ret','stdev','sharpe',*stocks])
 max_sharpe_port = results_frame.iloc[results_frame['sharpe'].idxmax()]
 #locate positon of portfolio with minimum standard deviation
 min_vol_port = results_frame.iloc[results_frame['stdev'].idxmin()]
-
+#locate positon of portfolio with maximum standard deviation
 max_ret_port = results_frame.iloc[results_frame['ret'].idxmax()]
 
 #create scatter plot coloured by Sharpe Ratio
